@@ -1,0 +1,16 @@
+{
+  "name": "cors-p3p-test-source",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "app.js",
+  "config": {
+    "port": "8100"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}

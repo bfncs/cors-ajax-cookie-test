@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CORS P3P Test Source</title>
+</head>
+<body>
+<h1>CORS P3P Test Source</h1>
+<form id="form">
+    <label for="target">Target URL</label>
+    <input id="target" type="url" name="target">
+    <button type="submit">Submit request</button>
+</form>
+<script>
+    var form = document.getElementById('form');
+
+    form.addEventListener('submit', function(e) {
+        var targetUrl = document.getElementById('target').value;
+        var loginUrl = targetUrl.trim().replace(/[\s/]+$/, '') + '/login';
+        var req;
+
+        e.preventDefault();
+
+        req = new XMLHttpRequest();
+        req.addEventListener('load', function(e) {
+            window.location.href = targetUrl;
+        });
+        req.addEventListener('error', function() {
+            console.log('Request failed.');
+        });
+        req.open('POST', loginUrl, true);
+        req.withCredentials = true;
+        req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        req.send();
+    });
+</script>
+</body>
+</html>
