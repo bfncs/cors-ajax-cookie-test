@@ -8,7 +8,9 @@
 <h1>CORS P3P Test Source</h1>
 <form id="form">
     <label for="target">Target URL</label>
-    <input id="target" type="url" name="target">
+    <input id="target" name="target" type="url">
+    <label for="p3p">Send P3P header</label>
+    <input id="p3p" name="p3p" type="checkbox">
     <button type="submit">Submit request</button>
 </form>
 <script>
@@ -16,7 +18,8 @@
 
     form.addEventListener('submit', function(e) {
         var targetUrl = document.getElementById('target').value;
-        var loginUrl = targetUrl.trim().replace(/[\s/]+$/, '') + '/login';
+        var useP3p = document.getElementById('p3p').checked;
+        var loginUrl;
         var req;
 
         e.preventDefault();
@@ -28,7 +31,13 @@
         req.addEventListener('error', function() {
             console.log('Request failed.');
         });
+
+        loginUrl = targetUrl.trim().replace(/[\s/]+$/, '') + '/login';
+        if (useP3p) {
+            loginUrl += '?p3p=true';
+        }
         req.open('POST', loginUrl, true);
+
         req.withCredentials = true;
         req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
         req.send();

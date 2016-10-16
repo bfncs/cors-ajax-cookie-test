@@ -13,9 +13,16 @@ const app = express();
 const sessionStore = [];
 
 app.use(cookieParser());
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', req.header('origin') || '*');
     res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+});
+
+app.use((req, res, next) => {
+    if (req.query['p3p'] === 'true') {
+    res.header('P3P', 'CP="This is not a P3P policy!')
+}
     next();
 });
 
