@@ -1,6 +1,6 @@
 # Cross-origin ajax cookie test
 
-This is a striped down test case for setting a cross-origin cookie
+This is a stripped down test case for setting a cross-origin cookie
 through ajax with different user agents. It consist of a source
 component, from where such a request is issued and a target component
 where the request is received and the cookie is set and evaluated.
