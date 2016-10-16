@@ -38,7 +38,11 @@ app.get('/', (req, res) => {
 app.post('/login', (req, res) => {
     const sessionId = uid(24);
     sessionStore.push(sessionId);
-    res.cookie(sessionCookieIdentifier, sessionId, { maxAge: sessionCookieDuration, secure: true });
+    res.cookie(sessionCookieIdentifier, sessionId, {
+        maxAge: sessionCookieDuration,
+        httpOnly: true,
+        secure: true
+    });
     res.redirect('/');
 });
 
