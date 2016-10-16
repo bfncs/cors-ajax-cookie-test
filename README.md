@@ -9,27 +9,35 @@ where the request is received and the cookie is set and evaluated.
 
 1. Clone this repository and `cd` into it's directory.
 2. Install dependencies:
+
    ```
    npm install
    ```
+   
 3. Start the request source component:
+
    ```
    cd source
    npm start
    ```
+   
     You are notified that this service runs on port `8100`.
 4. In a separate terminal start the request target component:
+
    ```
    cd target
    npm start
    ```
+   
    You are notified that this service runs on port `8200`.
 5. Expose both services on different domains via https. You can easily
    do this on your machine using [`ngrok`](https://ngrok.com/):
+   
    ```
    ngrok http 8100
    ngrok http 8200
    ```
+   
    Issue these commands on separate terminals. You are notified about
    the URLs your services are available publicly.
 6. Open the URL of the source component, enter the URL of the target
