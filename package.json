@@ -1,0 +1,9 @@
+{
+  "name": "cors-ajax-cookie-test",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Test case for setting a cross-origin cookie through ajax.",
+  "scripts": {
+    "install": "npm --prefix ./source install ./source && npm --prefix ./target install ./target"
+  }
+}

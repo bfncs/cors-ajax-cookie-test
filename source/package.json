@@ -1,7 +1,6 @@
 {
-  "name": "cors-p3p-test-source",
-  "version": "1.0.0",
-  "description": "",
+  "name": "cors-ajax-cookie-test-source",
+  "version": "0.0.1",
   "private": true,
   "main": "app.js",
   "config": {
