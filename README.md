@@ -5,6 +5,10 @@ through ajax with different user agents. It consist of a source
 component, from where such a request is issued and a target component
 where the request is received and the cookie is set and evaluated.
 
+This works without flaws in all modern browsers including IE11 on
+Windows 10 but not on IE11 on Windows 7. You can make it work by
+sending a mock `P3P` header, though.
+
 ## Usage
 
 1. Clone this repository and `cd` into it's directory.
@@ -43,7 +47,7 @@ where the request is received and the cookie is set and evaluated.
    the URLs your services are available publicly.
 6. Open the URL of the source component, enter the URL of the target
    component into the input and submit the request. Optionally you can
-   set the checkbox to have a P3P header set.
+   set the checkbox to have a `P3P` header set.
    
    You are redirected to the target component.If you are welcomed back
    by the target component, there were no problems with setting a cookie
