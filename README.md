@@ -31,11 +31,12 @@ where the request is received and the cookie is set and evaluated.
    
    You are notified that this service runs on port `8200`.
 5. Expose both services on different domains via https. You can easily
-   do this on your machine using [`ngrok`](https://ngrok.com/):
+   do this on your machine using [`ngrok`](https://ngrok.com/) for one
+   component and [`localtunnel`](https://localtunnel.github.io/www/) for the other:
    
    ```
    ngrok http 8100
-   ngrok http 8200
+   lt --port 8200
    ```
    
    Issue these commands on separate terminals. You are notified about
