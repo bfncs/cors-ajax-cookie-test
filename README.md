@@ -7,7 +7,9 @@ where the request is received and the cookie is set and evaluated.
 
 This works without flaws in all modern browsers including IE11 on
 Windows 10 but not on IE11 on Windows 7. You can make it work by
-sending a mock `P3P` header, though.
+sending a mock `P3P` header, though. In IE<=9 you will have no luck
+anyway because a usable implementation of CORS is missing (and
+[`XDomainRequest` is way too restricted](https://blogs.msdn.microsoft.com/ieinternals/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds/))
 
 ## Usage
 
